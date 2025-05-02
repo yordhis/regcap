@@ -1,0 +1,39 @@
+ 
+{
+    "_comentario": "El primer nivel contiene los datos del estudiante",
+    "nombres": "NOMBRE",
+    "apellidos": "APELLIDO",
+    "nacionalidad": "V",
+    "cedula": 12345678,
+    "sexo": "F",
+    "sede": "3",
+    "estatus_estudiante": "A",
+
+    "_comentario2":"El segundo nivel es el atributo carreras que contienes todas las carreras donde el estudiante este acivo",
+    "carreras": [
+        {
+            "_comentario3":"Aqui estan los datos de la carrera, programa y sede de la carrera que cursa el estudiante",
+            "estatus_estudiante": "A",
+            "dni": 12345678,
+            "codigo_carrera": "432",
+            "sede": "3",
+            "codigo_programa": 4,
+            "nombre_carrera": "LIC. EDUCACION ARTE CD 2008\/506",
+            "tipo_carrera": "LICoING",
+            "estatus_carrera": "A",
+            "codPrograma": 4,
+            "nombre_programa": "Ciencias de la Educaci\u00f3n y Humanidades",
+            "codigo_sede": "3",
+            "nombre_sede": "Barinas",
+            "tipo_sede": "Principal",
+            "tipo_oferta_sede": "LICoING",
+            "zona_sede": "RRHH_BARINAS;ARSE_BARINAS;NOM_SEDES;",
+            "estado_sede": "BARINAS",
+            "municipio_sede": "Barinas",
+            "parroquia_sede": "Alto Barinas",
+            "sector_sede": "Av. 23 de Enero Redoma Ezequiel Zamora Alto Barinas",
+            "arse": "ARSE_BARINAS"
+        }
+    ]
+    
+}
