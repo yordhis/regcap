@@ -14,7 +14,10 @@ class PersonSeeder extends Seeder
     public function run(): void
     {
         // \App\Models\Person::factory(10)->create();
-        Person::factory()->count(60)->create();
+        if (env('APP_DEBUG')) {
+            # code...
+            Person::factory()->count(60)->create();
+        }
         // Uncomment the line below to create a specific person
         // Person::factory()->create(['name' => 'John Doe', 'email' => '
     }
