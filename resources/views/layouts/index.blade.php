@@ -3,6 +3,8 @@
 
 <head>
   @include('partials.head')
+  @include('partials.headStyle')
+
 </head>
 
 <body>
