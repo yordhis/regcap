@@ -28,21 +28,10 @@
             <li class="nav-item">
                 <a class="nav-link {{ url()->current() == route('admin.person.index') ? 'bg-primary text-white' : 'collapsed' }} "
                     href="{{ route('admin.person.index') }}">
-                    <i class="bi bi-grid"></i>
+                    <i class="bi bi-people"></i>
                     <span>Registros</span>
                 </a>
             </li><!-- End Dashboard Nav | Panel-->
-
-
-
-            <!-- Start Components Nav | Reportes -->
-            <li class="nav-item">
-                <a class="nav-link {{ url()->current() == route('admin.reportes.index') ? 'bg-primary text-white' : 'collapsed' }} "
-                    href="{{ route('admin.reportes.index') }}">
-                    <i class="bi bi-grid"></i>
-                    <span>Reportes</span>
-                </a>
-            </li><!-- End Dashboard Nav | Reportes-->
 
             <!-- Start Components Nav | configuraciones -->
             <li class="nav-item">

@@ -17,6 +17,21 @@
         </div>
     </div>
 
+    
+    {{-- respuesta de validadciones --}}
+    <div class="col-12">
+        @if ($errors->any())
+            <div class="alert alert-danger text-start">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
+
+
     <section class="section register d-flex flex-column align-items-center justify-content-center ">
         <div class="container">
             <div class="row justify-content-center">
