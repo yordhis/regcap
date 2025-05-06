@@ -29,11 +29,17 @@
             <div class="col-12">
                 <h2> Lista de registros </h2>
             </div>
-            <div class="col-sm-6 col-xs-12">
+            <div class="col-sm-4 col-xs-12 ">
                 @include('admin.personas.partials.modalFormulario')
 
+                <form action="{{ route('admin.person.exportPDF')}}" method="post" target="_blank">
+                    @csrf
+                    <button class="btn btn-danger my-2" type="submit" id="button-addon2">
+                        <i class="bi bi-file"></i> Generar reporte
+                    </button>
+                </form>
             </div>
-            <div class="col-sm-6 col-xs-12">
+            <div class="col-sm-8 col-xs-12">
                 <form action="{{ route('admin.person.index') }}" method="post">
                     @csrf
                     @method('get')

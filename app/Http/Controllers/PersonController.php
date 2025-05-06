@@ -7,9 +7,11 @@ use App\Models\DataDev;
 use App\Models\DataStatic;
 use App\Models\Person;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PersonController extends Controller
 {
+
     public function index(Request $request)
     {
         $respuesta = DataDev::$respuesta;
@@ -36,6 +38,62 @@ class PersonController extends Controller
         }
 
         return view('admin.personas.index', compact('respuesta', 'people', 'request', 'states', 'cities', 'parishes'));
+    }
+
+    public function exportPDF(Request $request)
+    {
+        $data = [];
+        $dataStatic = DataStatic::$data;
+        $municipiosStatic = []; // municipios
+        $parroquiasStatic = []; // parroquias
+
+        /** Obtenemos los municipios y parroquias */
+        foreach ($dataStatic['Barinas']['municipios'] as $key2 => $value2) {
+            array_push($municipiosStatic, $key2);
+
+            foreach ($value2['parroquias'] as $key3 => $value3) {
+                array_push($parroquiasStatic, $value3);
+            }
+        }
+
+        /** Obtenemos los datos estadisticos */
+        foreach ($dataStatic['Barinas']['municipios'] as $municipio => $parroquias) {
+            $data['estadisticas'][$municipio] = [];
+            foreach ($parroquias['parroquias'] as $parroquia) {
+                array_push($data['estadisticas'][$municipio], [
+                    $parroquia => Person::where('parish', $parroquia)
+                        ->where('city', $municipio)
+                        ->count(),
+                ]);
+            }
+        }
+
+        /** Obtenemos los datos de las personas por municipio y parroquia */
+        foreach ($dataStatic['Barinas']['municipios'] as $municipio => $parroquias) {
+            foreach ($parroquias['parroquias'] as $parroquia) {
+                $data['personas'][$municipio][$parroquia] = Person::where('parish', $parroquia)
+                    ->where('city', $municipio)
+                    ->get();
+            }
+        }
+
+        /** Establesemos la hora y fecha al generar el reporte */
+        $data['info'] = [
+            "hora" => date("H:i:s a"),
+            "fecha" => date("d-m-Y"),
+        ];
+
+
+        /** Generamos el pdf */
+        $pdf = Pdf::loadView('admin.pdf.reporte', [
+            'estadisticas' => $data['estadisticas'],
+            'info' => $data['info'],
+            'personas' => $data['personas'],
+            'municipios' => $municipiosStatic,
+            'parroquias' => $parroquiasStatic,
+            'contador' => 0,
+        ]);
+        return $pdf->stream('reporte.pdf');
     }
 
     public function storePublic(StorePersonRequest $request)

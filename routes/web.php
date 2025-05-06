@@ -62,6 +62,7 @@ Route::middleware('auth', 'validarRol')->group(function () {
     Route::get('/registros/{id}', [PersonController::class, 'show'])->name('admin.person.show');
     Route::put('/registros/{id}', [PersonController::class, 'update'])->name('admin.person.update');
     Route::delete('/registros/{id}', [PersonController::class, 'destroy'])->name('admin.person.destroy');
+    Route::post('/registros/generar/reporte', [PersonController::class, 'exportPDF'])->name('admin.person.exportPDF');
 
     /** Reportes de particiapacion de votos */
     Route::resource('/reportes', ReporteController::class)->names('admin.reportes');
