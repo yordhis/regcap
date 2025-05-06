@@ -2,7 +2,7 @@
   <footer class="footer col-12 postion" >
     <div class="copyright ">
       <img src="{{ asset('assets/img/logo-dtsi-unellez.png') }}" width="150" class="  " alt="logo-footer">
-      &copy; Copyright <strong><span>UNELLEZ</span></strong>. Todos los derechos reservados
+      &copy; Copyright <strong><span></span></strong>. Todos los derechos reservados
       Diseñado y desarrollado por <a href="https://unellez.edu.ve/portalweb/public/index.php/departamentos/16" target="_blank">DTSI</a>
     </div>
   </footer><!-- End Footer -->
