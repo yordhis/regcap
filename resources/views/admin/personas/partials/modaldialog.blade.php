@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="col-md-12 label"> 
-                          <span class="text-primary">Email:</span> {{ $person->email }} 
+                          <span class="text-primary">Email:</span> {{ $person->email ?? 'No tiene email' }} 
                         </div>
 
                         <div class="col-md-12 label"> 

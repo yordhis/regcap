@@ -24,7 +24,7 @@ class StorePersonRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:people,email',
+            'email' => 'email|max:255| nullable',
             'dni' => 'required|string|max:20|unique:people,dni',
             'state' => 'required|string|max:255',
             'city' => 'required|string|max:255',

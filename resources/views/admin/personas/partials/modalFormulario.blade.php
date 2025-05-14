@@ -67,8 +67,8 @@
                                <div class="input-group has-validation">
 
                                    <input type="email" name="email" class="form-control" id="email"
-                                       placeholder="Ingrese su correo" value="{{ old('email') ?? '' }}" required>
-                                   <div class="invalid-feedback">Por favor ingrese su correo! </div>
+                                       placeholder="Ingrese su correo" value="{{ old('email') ?? '' }}">
+                                   <div class="invalid-feedback">Por favor ingrese un correo valido! </div>
                                </div>
                                @error('email')
                                    <div class="text-danger"> {{ $message }} </div>
